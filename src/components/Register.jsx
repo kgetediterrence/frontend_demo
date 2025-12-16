@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import './Register.css';
 
 function Register() {
   const [form, setForm] = useState({ name: '', surname: '', phone: '', email: '', password: '', confirmPassword: '' });
@@ -45,7 +46,7 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <input name="name" placeholder="Name" value={form.name} onChange={handleChange} required />
@@ -56,8 +57,8 @@ function Register() {
         <input name="confirmPassword" type="password" placeholder="Confirm Password" value={form.confirmPassword} onChange={handleChange} required />
         <button type="submit">Register</button>
       </form>
-      {error && <p>{error}</p>}
-      <p>Already have an account? <Link to="/login">Login</Link></p>
+      {error && <p className="error">{error}</p>}
+      <p className="link">Already have an account? <Link to="/login">Login</Link></p>
     </div>
   );
 }

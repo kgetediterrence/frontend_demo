@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import './Login.css';
 
 function Login() {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  const handleFillDemo = () => {
+    setPhone('0712345678');
+    setPassword('password');
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,15 +40,16 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <button type="button" onClick={handleFillDemo}>Fill Demo</button>
         <button type="submit">Login</button>
       </form>
-      {error && <p>{error}</p>}
-      <p>Don't have an account? <Link to="/register">Register</Link></p>
+      {error && <p className="error">{error}</p>}
+      <p className="link">Don't have an account? <Link to="/register">Register</Link></p>
     </div>
   );
 }

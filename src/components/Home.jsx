@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import './Home.css';
 
 function Home() {
   const navigate = useNavigate();
@@ -9,13 +10,15 @@ function Home() {
   }
 
   return (
-    <div>
-      <h2>Welcome, {user.name} {user.surname}</h2>
-      <button onClick={() => { localStorage.clear(); navigate('/login'); }}>Logout</button>
-      <button onClick={() => navigate('/airtime-data')}>Airtime & Data</button>
-      <button onClick={() => navigate('/video-music')}>Video and Music</button>
-      <button onClick={() => navigate('/tickets')}>Tickets</button>
-      <button onClick={() => user.role === 'admin' ? navigate('/admin') : alert('Access denied')}>Admin Page</button>
+    <div className="container">
+      <h2 className="welcome">Welcome, {user.name} {user.surname}</h2>
+      <button className="logout-button" onClick={() => { localStorage.clear(); navigate('/login'); }}>Logout</button>
+      <div className="button-grid">
+        <button className="dashboard-button" onClick={() => navigate('/airtime-data')}>Airtime & Data</button>
+        <button className="dashboard-button" onClick={() => navigate('/video-music')}>Video and Music</button>
+        <button className="dashboard-button" onClick={() => navigate('/tickets')}>Tickets</button>
+        <button className="dashboard-button admin-button" onClick={() => user.role === 'admin' ? navigate('/admin') : alert('Access denied')}>Admin Page</button>
+      </div>
     </div>
   );
 }

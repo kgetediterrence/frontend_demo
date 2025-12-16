@@ -1,6 +1,8 @@
+import './Dashboard.css';
+
 function AirtimeData() {
   return (
-    <div>
+    <div className="container">
       <h2>Welcome to Airtime & Data Dashboard</h2>
       <p>Select airtime or data bundle</p>
       <select>

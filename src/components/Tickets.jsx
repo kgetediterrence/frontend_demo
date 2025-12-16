@@ -1,6 +1,8 @@
+import './Dashboard.css';
+
 function Tickets() {
   return (
-    <div>
+    <div className="container">
       <h2>Welcome to Tickets Dashboard</h2>
       <p>Book tickets</p>
       <select>
