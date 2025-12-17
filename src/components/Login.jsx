@@ -45,7 +45,7 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button type="button" onClick={handleFillDemo}>Fill Demo</button>
+        <button type="button" onClick={handleFillDemo}>Login with demo details</button>
         <button type="submit">Login</button>
       </form>
       {error && <p className="error">{error}</p>}
